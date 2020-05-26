@@ -10,13 +10,14 @@ class InputField extends StatelessWidget {
   final bool obscureText;
   final Function onSaved;
   final Function validator;
-
+  final TextEditingController controller;
   InputField({
     @required this.label,
     @required this.icon,
     @required this.obscureText,
     this.onSaved,
     this.validator,
+    this.controller,
   });
 
   @override
@@ -42,6 +43,7 @@ class InputField extends StatelessWidget {
                 const EdgeInsets.symmetric(horizontal: 18.0, vertical: 4.0),
             borderRadius: 8.0,
             child: TextFormField(
+              controller: controller,
               obscureText: obscureText,
               style: textTheme.headline5.copyWith(
                 color: MyColors.FONT_MAIN_COLOR,

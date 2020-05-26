@@ -58,8 +58,6 @@ class LoginScreen extends StatelessWidget {
                     crossAxisAlignment: CrossAxisAlignment.center,
                     mainAxisAlignment: MainAxisAlignment.spaceBetween,
                     children: <Widget>[
-                      //spacing
-                      SizedBox(width: 8.0),
                       //forget password button
                       Flexible(
                         child: FlatButton(
@@ -82,10 +80,16 @@ class LoginScreen extends StatelessWidget {
                       SizedBox(width: 16.0),
                       //login button
                       InkWell(
-                        onTap: () {},
+                        onTap: () {
+                          Navigator.of(context).pushReplacementNamed(
+                            Routes.HOME_SCREEN,
+                          );
+                        },
                         child: NeumorphicContainer(
                           padding: const EdgeInsets.symmetric(
-                              horizontal: 42.0, vertical: 16.0),
+                            horizontal: 42.0,
+                            vertical: 16.0,
+                          ),
                           borderRadius: 12.0,
                           child: Text(
                             'login',
@@ -137,18 +141,20 @@ class LoginScreen extends StatelessWidget {
                 Align(
                   alignment: Alignment.bottomCenter,
                   child: InkWell(
-                    onTap: () => Navigator.of(context).pushReplacementNamed(Routes.SIGNUP_SCREEN),
+                    onTap: () => Navigator.of(context)
+                        .pushReplacementNamed(Routes.SIGNUP_SCREEN),
                     child: Text.rich(
                       TextSpan(
                         text: 'Don\'t Have an Account ? ',
                         style: textTheme.bodyText1,
                         children: [
                           TextSpan(
-                              text: 'Signup',
-                              style: textTheme.button.copyWith(
-                                color: MyColors.FONT_MAIN_COLOR,
-                                fontSize: 22.0,
-                              )),
+                            text: 'Signup',
+                            style: textTheme.button.copyWith(
+                              color: MyColors.FONT_MAIN_COLOR,
+                              fontSize: 22.0,
+                            ),
+                          ),
                         ],
                       ),
                     ),
